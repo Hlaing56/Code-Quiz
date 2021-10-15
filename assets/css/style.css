@@ -21,4 +21,21 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+
+.questions ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 25px;
+}
+
+.questions ul li {
+  margin-top: 10px;
+}
+
+#qOne {
+  display: none;
 }

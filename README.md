@@ -9,3 +9,7 @@ smalls things first-
 #1 is done but timer doesnt work, do #2 then put in timer buttom press function
 
 #1 & 2 are done. I have it where when I click the button the timer starts
+
+use set atturbuite to show next question and hide the others
+
+did all three, now make is so the options are clickable and add classes for right or worng
