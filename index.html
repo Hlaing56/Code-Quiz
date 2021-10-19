@@ -11,8 +11,6 @@
     <header>
         <a href=" ">View Highscores</a>
 
-        <!-- <h1>Code Quiz</h1> -->
-
         <p id="timer"> Timer: 100</p>
     </header>
 
@@ -24,25 +22,21 @@
             <br>
             <button id="startButton">Start Quiz</button>
         </div>
-        
-        <div class = "questions">
-            <div id = "qOne">
-                <h2>What color is the tounge of a giraffe</h2>
-                <ul>
-                    <li>
-                        Red
-                    </li>
-                    <li>
-                        Blue
-                    </li>
-                    <li>
-                        Yellow
-                    </li>
-                    <li>
-                        Pink
-                    </li>
-                </ul>
-            </div>
+
+        <div id = "question"></div>
+        <div id = "ans">
+            <div id = "answer1" class = "answers"></div>
+            <div id = "answer2" class = "answers"></div>
+            <div id = "answer3" class = "answers"></div>
+            <div id = "answer4" class = "answers"></div>
+        </div>
+    
+        <div id = "wrongPop">
+            Wrong 
+        </div> 
+
+        <div id="submit">
+            <button> Submit Quiz</button>
         </div>
         
     </section>

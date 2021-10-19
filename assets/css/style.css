@@ -24,18 +24,42 @@ a {
   text-align: center;
 }
 
-.questions ul {
-  list-style: none;
+#question {
+  font-weight: bold;
+  font-size: x-large;
+  display: none;
+}
+
+#ans {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-left: 25px;
+  display: none;
 }
 
-.questions ul li {
+.answers {
   margin-top: 10px;
+  background: rgb(92, 7, 92);
+  color: white;
+  border-radius: 15px;
+  padding: 5px;
+  cursor: pointer;
 }
 
-#qOne {
+button {
+  border: 0;
+  background-color: rgb(92, 7, 92);
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#wrongPop {
+  display: none;
+}
+
+#submit {
   display: none;
 }
