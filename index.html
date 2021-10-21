@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <a href=" ">View Highscores</a>
+        <a id = "seeHighscores" >View Highscores</a>
 
         <p id="timer"> Timer: 100</p>
     </header>
@@ -35,11 +35,26 @@
             Wrong 
         </div> 
 
-        <div id="submit">
+        <div id = "submit">
             <button> Submit Quiz</button>
         </div>
-        
+
+        <div id = "scoreSub">
+            <h2>All done!</h2>
+            <p id = "score"></p>
+            Enter initials:<input id="initials" name="initials">
+            <button id = "seeLead"> Submit</button>
+
+        </div>
+
+        <div id = "Highscores">
+            <h2>Highscores</h2>
+            <ol id = "list-High"></ol>
+
+        </div>
     </section>
+
+
     <script src="./assets/js/script.js"></script>
 </body>
 </html>

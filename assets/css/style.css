@@ -63,3 +63,11 @@ button {
 #submit {
   display: none;
 }
+
+#scoreSub {
+  display: none;
+}
+
+#Highscores {
+  display: none;
+}

@@ -1,9 +1,16 @@
+var i = 0;
+var tasks = [];
+
 var countdownEl = document.querySelector('#startButton');
 var timerEl = document.querySelector('#timer');
 var container = document.querySelector("#ans");
 var submitEl = document.querySelector("#submit");
+var leadEl = document.querySelector("#seeLead");
+var highEl = document.querySelector("#list-High");
+var seeEl = document.querySelector("#seeHighscores");
 
-var i = 0;
+
+
 
 var questions = [
     {
@@ -33,7 +40,7 @@ var answers = [questions[0].answer4, questions[1].answer2, questions[2].answer4]
 
 var length = questions.length - 1;
 
-// var score = 0;
+var score = 0;
 var timeLeft = 99;
 
 function countdown() {
@@ -49,15 +56,16 @@ function countdown() {
     submitEl.addEventListener("click", function(event) {
         clearInterval(timeInterval);
 
+        score = timeLeft + 1;
+
+        document.getElementById('score').textContent = "Your final score is " + score;
+        document.getElementById('submit').style = "display: none";
+        document.getElementById('question').style = "display: none";
+        document.getElementById('ans').style = "display: none";
+        document.getElementById('scoreSub').style = "display: contents";
+
+
     });
-    
-    //     console.log(timeLeft + 1);
-
-    //     score = timeLeft + 1;
-
-    //     console.log(score);
-
-    // });
 };
 
 document.getElementById('question').textContent = questions[i].quest;
@@ -119,4 +127,61 @@ container.addEventListener("click", function(event) {
     };
 });
 
+function highscore(){
 
+    var nameInput = document.querySelector("input[name='initials']").value;
+
+    var stuff = {
+        name: nameInput,
+        Highscore: score
+    };
+
+    createScoreEl(stuff);
+};
+
+var createScoreEl = function (stuff) {
+    
+    var listItemEl = document.createElement("li");
+
+    listItemEl.innerHTML = "<p>"+ stuff.name + " - " + stuff.Highscore +"</p>"
+
+    highEl.appendChild(listItemEl);
+
+    tasks.push(stuff);
+
+    saveTasks();
+}
+
+var saveTasks = function() {
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+};
+
+var loadTask = function() { 
+    var savedTasks = JSON.parse(localStorage.getItem("tasks"));
+
+    if (!savedTasks) {
+        return false;
+    }
+
+    for (var i = 0; i < savedTasks.length; i++) {
+        createScoreEl(savedTasks[i]);
+    }
+
+};
+
+loadTask();
+
+leadEl.addEventListener("click", function(event) {
+    highscore();
+    document.getElementById('scoreSub').style = "display: none";
+    document.getElementById('Highscores').style = "display: contents";
+});
+
+
+seeEl.addEventListener("click", function(event) {
+    
+    document.getElementById('intro').style = "display: none";    
+    document.getElementById('Highscores').style = "display: contents";
+});

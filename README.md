@@ -30,3 +30,9 @@ setintervel to make it stop
 it looks trash but I have most things to work,
 just need the score to save into local,
 make the div for highscore and have user input saved for name, then load the saved data
+
+make a new box pop up for highscore
+
+everything works and this homework challege is almost done
+now just make it look good and make a clear highscore function
+good job
