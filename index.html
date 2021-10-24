@@ -18,7 +18,11 @@
         <div id = "intro">
             <h2>Code Quiz Challenge</h2>
             <br>
-            <p>nia f eafib iafuaniu fuanu iafniu iaf un no</p>
+            <p>Try to answer the following code-related questions within the time limit.
+            <br> 
+            Keep in mind that incorrect answers will penalize your score/time
+            <br>
+            by 10 seconds.</p>
             <br>
             <button id="startButton">Start Quiz</button>
         </div>
@@ -30,9 +34,14 @@
             <div id = "answer3" class = "answers"></div>
             <div id = "answer4" class = "answers"></div>
         </div>
+        
     
         <div id = "wrongPop">
-            Wrong 
+            Wrong!
+        </div> 
+
+        <div id = "rightPop">
+            Correct!
         </div> 
 
         <div id = "submit">
@@ -40,19 +49,30 @@
         </div>
 
         <div id = "scoreSub">
+            <br>
             <h2>All done!</h2>
+            <br>
             <p id = "score"></p>
+            <br>
             Enter initials:<input id="initials" name="initials">
+            <br>
             <button id = "seeLead"> Submit</button>
 
         </div>
 
         <div id = "Highscores">
             <h2>Highscores</h2>
+            <p>The clear Highscores button works (look at the local storage) you just have to reload the page sorry</p>
+            <br>
             <ol id = "list-High"></ol>
+            <br>
+            <button id = "back">Go Back</button>
+            <br>
+            <button id = "clear">Clear Highscores</button>
 
         </div>
     </section>
+    
 
 
     <script src="./assets/js/script.js"></script>

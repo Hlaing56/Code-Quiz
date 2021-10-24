@@ -8,35 +8,43 @@ var submitEl = document.querySelector("#submit");
 var leadEl = document.querySelector("#seeLead");
 var highEl = document.querySelector("#list-High");
 var seeEl = document.querySelector("#seeHighscores");
-
+var goBack = document.querySelector("#back");
+var clear = document.querySelector("#clear");
 
 
 
 var questions = [
     {
-        quest: "What color is the tongue of a giraffe",
-        answer1: "black",
-        answer2: "blue",
-        answer3: "pink",
-        answer4: "red"
+        quest: "The condition in an if/else statement is enclosed within _____.",
+        answer1: "1. quotes",
+        answer2: "2. curly brackets",
+        answer3: "3. parentheses",
+        answer4: "4. square brackets"
      },
     {
-        quest: "Does this work",
-        answer1: "yes",
-        answer2: "kinda",
-        answer3: "nope",
-        answer4: "IDK"
+        quest: "Arrays in JavaScript can be used to store _____.",
+        answer1: "1. numbers and strings",
+        answer2: "2. other arrays",
+        answer3: "3. booleans",
+        answer4: "4. all of the above"
     },
     {
-        quest: "What color is the sun",
-        answer1: "red",
-        answer2: "orange",
-        answer3: "yellow",
-        answer4: "IDK"
+        quest: "String values must be enclosed within ____ when being assigned to variables.",
+        answer1: "1. commas",
+        answer2: "2. curly brackets",
+        answer3: "3. quotes",
+        answer4: "4. parentheses"
+    },
+    {
+        quest: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        answer1: "1. JavaScript",
+        answer2: "2. terminal/bash",
+        answer3: "3. for loops",
+        answer4: "4. console.log"
     }
 ]
 
-var answers = [questions[0].answer4, questions[1].answer2, questions[2].answer4]
+var answers = [questions[0].answer3, questions[1].answer4, questions[2].answer3, questions[3].answer4]
 
 var length = questions.length - 1;
 
@@ -45,14 +53,32 @@ var timeLeft = 99;
 
 function countdown() {
 
+    timeLeft = 99;
+
     var timeInterval = setInterval(function() {
         timerEl.textContent = "Timer: " + timeLeft;
-        timeLeft--
+        timeLeft--;
+
+        if (timeLeft == -1) {
+            clearInterval(timeInterval);
+    
+            //score = timeLeft;
+    
+            document.getElementById('score').textContent = "Your final score is " + score;
+            document.getElementById('submit').style = "display: none";
+            document.getElementById('question').style = "display: none";
+            document.getElementById('ans').style = "display: none";
+            document.getElementById('scoreSub').style = "display: contents";
+    
+            
+        };
+    
   
     }, 1000);
 
 
     
+
     submitEl.addEventListener("click", function(event) {
         clearInterval(timeInterval);
 
@@ -103,13 +129,33 @@ function wrongPopup() {
     }, 1000);    
 };
 
+function rightPopup() {
+    var time = 1;
+
+    var timeInterval = setInterval(function () {
+        if(time > 0){
+            document.getElementById('rightPop').style = "display: contents";
+            time--;
+
+        } else {
+            document.getElementById('rightPop').style = "display: none";
+            clearInterval(timeInterval);
+        }
+
+    }, 1000);    
+};
+
 container.addEventListener("click", function(event) {
     var element = event.target; 
 
     if(element.textContent != answers[i]) {
         wrongPopup();
         timeLeft = timeLeft - 10;
+    } else if (element.textContent == answers[i]) {
+        rightPopup();
+
     };
+
 
     i++;
     
@@ -181,7 +227,18 @@ leadEl.addEventListener("click", function(event) {
 
 
 seeEl.addEventListener("click", function(event) {
-    
     document.getElementById('intro').style = "display: none";    
     document.getElementById('Highscores').style = "display: contents";
+    document.getElementById('question').style = "display: none";
+    document.getElementById('ans').style = "display: none";
+});
+
+goBack.addEventListener("click", function(event) {
+    document.getElementById('Highscores').style = "display: none";
+    document.getElementById('intro').style = "display: contents";    
+    document.getElementById('intro').style = "align-items: center";
+});
+
+clear.addEventListener("click", function(event) {
+    localStorage.clear();
 });
